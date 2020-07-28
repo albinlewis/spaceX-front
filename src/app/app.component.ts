@@ -1,3 +1,4 @@
+import { LaunchService } from './launch.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'spaceX-front';
+
+  constructor(private launchService: LaunchService) {
+    this.launchService.getAllLaunches().subscribe(( launches ) => {
+       console.log(launches);
+    });
+  }
 }
